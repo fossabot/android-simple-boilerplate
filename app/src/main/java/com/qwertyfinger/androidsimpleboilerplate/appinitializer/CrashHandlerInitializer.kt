@@ -30,18 +30,19 @@ import javax.inject.Inject
 
 const val KEY_TIMESTAMP = "timestamp"
 
-class CrashHandlerInitializer @Inject constructor() : AppInitializer {
-  override fun init(application: Application) {
-    val defaultHandler: Thread.UncaughtExceptionHandler =
-      Thread.getDefaultUncaughtExceptionHandler()
+class CrashHandlerInitializer @Inject constructor() : AppInitializerNoRobolectric {
+  override val initializer: (Application) -> Unit
+    get() = {
+      val defaultHandler: Thread.UncaughtExceptionHandler =
+        Thread.getDefaultUncaughtExceptionHandler()
 
-    Thread.setDefaultUncaughtExceptionHandler { thread, exception ->
-      try {
-        // Log some relevant information to Crashlytics
-        Crashlytics.setLong(KEY_TIMESTAMP, System.currentTimeMillis())
-      } finally {
-        defaultHandler.uncaughtException(thread, exception)
+      Thread.setDefaultUncaughtExceptionHandler { thread, exception ->
+        try {
+          // Log some relevant information to Crashlytics
+          Crashlytics.setLong(KEY_TIMESTAMP, System.currentTimeMillis())
+        } finally {
+          defaultHandler.uncaughtException(thread, exception)
+        }
       }
     }
-  }
 }

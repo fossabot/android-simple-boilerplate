@@ -32,5 +32,8 @@ import javax.inject.Inject
 class TimberInitializer @Inject constructor(
   private val timberLogger: TimberLogger
 ) : AppInitializer {
-  override fun init(application: Application) = timberLogger.setup(BuildConfig.DEBUG)
+  override val initializer: (Application) -> Unit
+    get() = {
+      timberLogger.setup(BuildConfig.DEBUG)
+    }
 }

@@ -22,27 +22,8 @@
  * SOFTWARE.
  */
 
-package com.qwertyfinger.androidsimpleboilerplate.appinitializer
+package com.qwertyfinger.androidsimpleboilerplate.util
 
-import android.app.Application
-import com.jakewharton.threetenabp.AndroidThreeTen
-import com.qwertyfinger.androidsimpleboilerplate.util.AppCoroutineDispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.threeten.bp.zone.ZoneRulesProvider
-import javax.inject.Inject
+import android.os.Build
 
-class ThreeTenBpInitializer @Inject constructor(
-  private val dispatchers: AppCoroutineDispatchers
-) : AppInitializer {
-  override val initializer: (Application) -> Unit
-    get() = {
-      // Init ThreeTenABP
-      AndroidThreeTen.init(it)
-
-      // Query the ZoneRulesProvider so that it is loaded on a background coroutine
-      GlobalScope.launch(dispatchers.io) {
-        ZoneRulesProvider.getAvailableZoneIds()
-      }
-    }
-}
+fun isRobolectricBuild(): Boolean = Build.FINGERPRINT == "robolectric"
