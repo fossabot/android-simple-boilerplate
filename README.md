@@ -1,4 +1,6 @@
 # Android Simple Boilerplate
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fqwertyfinger%2Fandroid-simple-boilerplate.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fqwertyfinger%2Fandroid-simple-boilerplate?ref=badge_shield)
+
 Provides a convenient **basic start-off point** for all your new Android projects.
 
 Tries to employ the best tools and practices.  
@@ -80,6 +82,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fqwertyfinger%2Fandroid-simple-boilerplate.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fqwertyfinger%2Fandroid-simple-boilerplate?ref=badge_large)
 
 ### Third-party Licenses
 Third-party licenses are included in [LICENSE-3RD-PARTY](https://github.com/qwertyfinger/android-simple-boilerplate/blob/master/LICENSE-3RD-PARTY).
